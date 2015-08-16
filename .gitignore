@@ -1,0 +1,23 @@
+*.pyc
+__pycache__/
+/README.html
+output.txt
+/staticfiles/*
+
+*.db
+/media/*
+/media_temp/*
+venv/
+venv2/
+venv3/
+/extstatic/
+
+/project_conf/secret/
+secret.txt
+
+# OS files
+*~
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
