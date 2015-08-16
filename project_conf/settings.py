@@ -9,6 +9,17 @@ SECRET_KEY = '!n#nyg-%_&t8q5o9rh9fh)uot(2zjj(dx48iyw#kfdsr!4_bmm'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
+try:
+	with open(os.path.join(CONF_DIR,"file_count_lim.txt")) as _file_count_lim_file:
+		FILE_COUNT_LIM = int(_file_count_lim_file.read().strip())
+except FileNotFoundError:
+	FILE_COUNT_LIM = 10
+try:
+	with open(os.path.join(CONF_DIR,"folder_size_lim.txt")) as _folder_size_lim_file:
+		FOLDER_SIZE_LIM = int(_folder_size_lim_file.read().strip())
+except FileNotFoundError:
+	FOLDER_SIZE_LIM = 100*1024*1024
+
 # Application definition
 
 INSTALLED_APPS = (

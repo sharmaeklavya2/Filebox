@@ -3,6 +3,8 @@ __pycache__/
 /README.html
 output.txt
 /staticfiles/*
+/project_conf/folder_size_lim.txt
+/project_conf/file_count_lim.txt
 
 *.db
 /media/*
@@ -11,7 +13,6 @@ venv/
 venv2/
 venv3/
 /extstatic/
-
 /project_conf/secret/
 secret.txt
 

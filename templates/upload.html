@@ -4,11 +4,18 @@
 {% block h1_block %}Upload a File{% endblock %}
 
 {% block body_block %}
-{% if upload_success %}<p style="color:green">{{upload_success}}</p>{% endif %}
-{% if upload_error %}<p style="color:red">{{upload_error}}</p>{% endif %}
+<p>You can upload at most {{num_remaining}} files</p>
+<p>You can upload at most {{mib_remaining}} MiB</p>
 <form method="POST" action="." enctype="multipart/form-data" >
 	{% csrf_token %}
 	<input type="file" name="files" multiple="multiple" /><br />
 	<input type="submit" name="submit" value="Upload" />
 </form>
+{% if status_list %}
+	<ol>
+	{% for status in status_list %}
+		<li>{{status}}</li>
+	{% endfor %}
+	</ol>
+{% endif %}
 {% endblock %}
