@@ -1,19 +1,19 @@
 *.pyc
 __pycache__/
 /README.html
-output.txt
+output.*
 /staticfiles/*
-/project_conf/folder_size_lim.txt
-/project_conf/file_count_lim.txt
 
-*.db
 /media/*
 /media_temp/*
+/media
+/media_temp
 venv/
 venv2/
 venv3/
 /extstatic/
-/project_conf/secret/
+/filebox/secret/
+/filebox/local/
 secret.txt
 
 # OS files

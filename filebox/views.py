@@ -48,9 +48,6 @@ message_map = {
 
 def upload(request):
 	context_dict = {}
-	folder_size, file_count = get_folder_size_and_file_count(settings.MEDIA_ROOT)
-	context_dict["num_remaining"] = settings.FILE_COUNT_LIM - file_count
-	context_dict["mib_remaining"] = (settings.FOLDER_SIZE_LIM - folder_size)/(1024*1024)
 	if request.method=="POST":
 		if "files" in request.FILES:
 			file_list = request.FILES.getlist("files")
@@ -62,4 +59,7 @@ def upload(request):
 			print(ufile.name,type(ufile))
 			message = message_map[retval].format(ufile.name)
 			context_dict["status_list"].append(message)
+	folder_size, file_count = get_folder_size_and_file_count(settings.MEDIA_ROOT)
+	context_dict["num_remaining"] = settings.FILE_COUNT_LIM - file_count
+	context_dict["mib_remaining"] = (settings.FOLDER_SIZE_LIM - folder_size)/(1024*1024)
 	return render(request, "upload.html", context_dict)
